@@ -5,8 +5,9 @@
 var http=require('http');
 let server=http.createServer(handleResponse);
 function handleResponse(req,res){
+    console.log(req.method);
     res.statusCode=201;
-    res.setHeader('content-Type','text/plain');
+    res.setHeader('Content-Type','text/plain');
     res.end('Welcome');
 }
 server.listen(4444,()=>{
