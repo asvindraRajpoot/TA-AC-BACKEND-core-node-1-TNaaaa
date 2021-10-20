@@ -5,7 +5,7 @@ fs.readFile('./content.md',(err,content)=>{
 })
 
 
-
+let result=fs.readFileSync('./content.md','utf8');
 
 let buff1=Buffer.alloc(10);
 console.log(buff1);
