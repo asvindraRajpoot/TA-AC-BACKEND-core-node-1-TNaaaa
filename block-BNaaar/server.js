@@ -22,7 +22,7 @@ function handleResponse(req,res){
         res.write('<h2>this is all about NodeJs</h2>');
         res.end();
     }else if(req.method==='POST' && pathname==='/about'){
-        res.setHeader('Content-Type','text/json')
+        res.setHeader('Content-Type','application/json')
         res.write('{message:this is a post request}');
         res.end();
     }
