@@ -8,23 +8,26 @@
 
 var http=require('http');
 var fs=require('fs');
-// let server=http.createServer(handleRequestOnFile);
-// function handleRequestOnFile(req,res){
-//     res.setHeader('Content-Type','text/html');
-//     fs.readFile('./node.html',(err,data)=>{
-//         if(err){
-//             console.log(err);
-//         }else{
-//             res.write(data);
-//             res.end();
-//         }
-//     })
-// }
-let server=http.createServer(handleRequestOnStream);
-function handleRequestOnStream(req,res){
+let server=http.createServer(handleRequest);
+function handleRequest(req,res){
     res.setHeader('Content-Type','text/html');
-    fs.createReadStream('./node.html').pipe(res);
+    if(req.url==='/file'){
+        fs.readFile('./node.html',(err,data)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.write(data);
+                res.end();
+            }
+        })
+    }
+    if(req.url==='/stream'){
+        res.setHeader('Content-Type','text/html');
+        fs.createReadStream('./node.html').pipe(res);
+    }
+ 
 }
+
 
 
 server.listen(5555,()=>{
