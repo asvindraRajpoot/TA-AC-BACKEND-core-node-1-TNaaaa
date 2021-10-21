@@ -10,24 +10,27 @@ var http=require('http');
 var fs=require('fs');
 let server=http.createServer(handleRequest);
 function handleRequest(req,res){
-    res.setHeader('Content-Type','text/html');
-    if(req.url==='/file'){
+   
+
+    if(req.url==='/files'){
         fs.readFile('./node.html',(err,data)=>{
             if(err){
                 console.log(err);
             }else{
+                res.setHeader('Content-Type','text/html');
                 res.write(data);
                 res.end();
             }
         })
     }
-    if(req.url==='/stream'){
+    else if(req.url==='/stream'){
         res.setHeader('Content-Type','text/html');
         fs.createReadStream('./node.html').pipe(res);
+    }else{
+        res.end('Page not found');
     }
  
 }
-
 
 
 server.listen(5555,()=>{
