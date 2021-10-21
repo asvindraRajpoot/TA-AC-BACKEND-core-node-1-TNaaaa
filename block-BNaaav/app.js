@@ -2,6 +2,9 @@ var http =require('http');
 var fs =  require('fs');
 var url = require('url');
 
+
+var path=require('path');
+
 // /assets/images/logo/logo.png
 // /assets/images/team/team_1.jpg
 // /assets/images/team/team_2.jpg
@@ -53,6 +56,24 @@ function handleRequestAndResponse(req,res){
         res.end(content);
       });
     }
+    else if (req.url.split(".").pop() === "png") {
+        // set header for css file
+        res.setHeader("Content-Type", "image/png");
+        // read css file and send it in response
+        fs.readFile(`.${req.url}`, (err, content) => {
+          if (err) return console.log(err);
+          res.end(content);
+        });
+      }
+      else if (req.url.split(".").pop() === "jpg") {
+        // set header for css file
+        res.setHeader("Content-Type", "image/jpg");
+        // read css file and send it in response
+        fs.readFile(`.${req.url}`, (err, content) => {
+          if (err) return console.log(err);
+          res.end(content);
+        });
+      }
 
     else{
         res.end('Page not found');

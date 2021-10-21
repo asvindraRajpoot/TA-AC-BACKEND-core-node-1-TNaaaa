@@ -173,7 +173,7 @@ background-color: #FD656B;
 .hero-home{
     width:100%;
     height:1100px;
-    background-image: url(../images/hero/h1_hero.jpg);
+    background-image: url(../images/h1_hero.jpg);
     background-repeat: no-repeat;
     background-size: auto;
     
@@ -182,24 +182,24 @@ background-color: #FD656B;
 .hero-service,.hero-about,.hero-case,.hero-contact,.hero-blog{
     width: 100%;
     height: 400px;
-    background-image: url(../images/hero/services_hero.jpg);
+    background-image: url(../images/services_hero.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
    
 }
 .hero-about{
-    background-image: url(../images/hero/about_hero.jpg);
+    background-image: url(../images/about_hero.jpg);
     
 }
 .hero-case{
-    background-image: url(../images/hero/cases_hero.jpg);
+    background-image: url(../images/cases_hero.jpg);
 }
 .hero-contact{
-    background-image: url(../images/hero/contact_hero.jpg);
+    background-image: url(../images/contact_hero.jpg);
 }
 .hero-blog{
-    background-image: url(../images/hero/blog_hero.jpg);
+    background-image: url(../images/blog_hero.jpg);
 }
 .hero-service h2,.hero-about h2,.hero-case h2,.hero-contact h2,.hero-blog h2{
 
