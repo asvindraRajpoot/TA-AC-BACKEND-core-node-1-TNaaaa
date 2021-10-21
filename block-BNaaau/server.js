@@ -5,7 +5,7 @@
 //   - check out console for request and response object
 var http=require('http');
 var url=require('url');
-let server=http.createServer(handleRequest);
+ let server=http.createServer(handleRequest);
 // function handleRequest(req,res){
 //     console.log(req,res);
 // }
@@ -35,7 +35,7 @@ let server=http.createServer(handleRequest);
 //     res.setHeader('Content-Type','text/plain');
 
 //     console.log(req.headers);
-//     res.end(req.headers);
+//     res.end(req.headers[user-agent]);
 //   }
 //   server.listen(5555,()=>{
 //       console.log('Server is listening at 5555 port');
@@ -49,7 +49,7 @@ let server=http.createServer(handleRequest);
 //     res.setHeader('Content-Type','text/plain');
 
 //     console.log(req.url,req.method);
-//     res.end(req.url,req.method);
+//     res.end(req.url+req.method);
 //   }
 //   server.listen(5566,()=>{
 //       console.log('Server is listening at 5566 port');
@@ -63,7 +63,7 @@ let server=http.createServer(handleRequest);
 //    res.setHeader('Content-Type','text/plain');
 
 //     console.log(req.headers);
-//     res.end();
+//     res.end(JSON.stringify( req.headers));
 //   }
 //   server.listen(7000,()=>{
 //       console.log('Server is listening at 7000 port');
@@ -79,8 +79,8 @@ let server=http.createServer(handleRequest);
 //     res.statusCode=202;
 //     res.end();
 //   }
-//   server.listen(3000,()=>{
-//       console.log('Server is listening at 3000 port');
+//   server.listen(3333,()=>{
+//       console.log('Server is listening at 3333 port');
 //   })
 
 // Q. create a server 
@@ -91,13 +91,10 @@ let server=http.createServer(handleRequest);
 
 // function handleRequest(req,res){
 //    res.setHeader('Content-Type','text/html');
- 
-
-    
 //     res.end('<h3>Welcome to altcampus</h3>')
 //   }
 //   server.listen(8000,()=>{
-//       console.log('Server is listening at 3000 port');
+//       console.log('Server is listening at 8000 port');
 //   })
 
 // Q. Repeat above question using `res.writeHead` to set status code and Content-Type at the same time.
@@ -122,8 +119,7 @@ let server=http.createServer(handleRequest);
  
 
 //     res.writeHead(200,{'Content-Type':'application/json'})
-//     res.write(res.json());
-//     res.end()
+//     res.end(JSON.stringify({success: true, message: 'Welcome to Nodejs'}))
 //   }
 //   server.listen(8888,()=>{
 //       console.log('Server is listening at 3000 port');
@@ -210,7 +206,7 @@ function handleRequest(req,res){
 
   
    
-    res.end(`${parsedUrl.query}`);
+    res.end(JSON.stringify(parsedUrl.query));
   }
   server.listen(5050,()=>{
       console.log('Server is listening at 5050 port');
